@@ -375,6 +375,7 @@ button {
 .choice-row.selected .choice-letter {
   border-color: #7aa79f;
   color: var(--ink);
+  background: #eef8f5;
 }
 
 .choice-row.correct .choice-letter {
