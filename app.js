@@ -1,4 +1,4 @@
-const STORAGE_KEY = "maogai-quiz-progress-v1";
+const STORAGE_KEY = "maogai-quiz-progress-v2";
 
 const questions = [
   { id: 1, type: "单选题", score: 1.5, stem: "1982年邓小平在党的十二大开幕词中明确指出：走自己的道路，（ ）。", options: { A: "马克思主义中国化时代化", B: "建设社会主义市场经济", C: "全面建设小康社会", D: "建设有中国特色的社会主义现代化" }, answer: "D" },
@@ -51,6 +51,21 @@ const questions = [
   { id: 48, type: "单选题", score: 1.5, stem: "中国特色社会主义理论体系形成发展的共同的时代主题是（ ）。", options: { A: "和平与发展", B: "战争与革命", C: "改革开放", D: "改革开放和社会主义现代化建设" }, answer: "A" },
   { id: 49, type: "单选题", score: 1.5, stem: "“三个代表”重要思想在邓小平理论的基础上，（ ）。", options: { A: "创造性地回答了新形势下实现什么样的发展、怎样发展", B: "创造性地回答了建设什么样的党、怎样建设党的问题", C: "创造性地回答了什么是社会主义、怎样建设社会主义的问题", D: "进一步回答了建设什么样的党、怎样建设党的问题" }, answer: "B" },
   { id: 50, type: "单选题", score: 1.5, stem: "邓小平正式提出“建设有中国特色的社会主义”科学命题是在（ ）。", options: { A: "党的十二大上", B: "党的十三大上", C: "党的十一届三中全会上", D: "党的十一届六中全会上" }, answer: "A" },
+  { id: 51, type: "多选题", score: 2, stem: "邓小平指出，社会主义的本质是（ ）。", options: { A: "解放生产力，发展生产力", B: "以经济建设为中心", C: "消灭剥削，消除两极分化", D: "最终达到共同富裕" }, answer: ["A", "C", "D"] },
+  { id: 52, type: "多选题", score: 2, stem: "科学发展观最鲜明的精神实质是（ ）。", options: { A: "解放思想", B: "与时俱进", C: "求真务实", D: "实事求是" }, answer: ["A", "B", "C", "D"] },
+  { id: 53, type: "多选题", score: 2, stem: "土地革命战争时期，中国红色政权能够存在与发展的原因有（ ）。", options: { A: "党的领导的有力量及其政策的不错误", B: "全国革命形势的继续发展和相当力量的正式红军的存在", C: "近代中国是多个帝国主义间接统治的经济落后的半殖民地国家", D: "国民革命的政治影响及良好的群众基础" }, answer: ["A", "B", "C", "D"] },
+  { id: 54, type: "多选题", score: 2, stem: "下列属于中国工人阶级特征的是（ ）。", options: { A: "和农民阶级联系紧密", B: "革命精神强", C: "分布集中", D: "与先进的生产方式相联系" }, answer: ["A", "B", "C", "D"] },
+  { id: 55, type: "多选题", score: 2, stem: "党在社会主义建设道路的初步探索中取得的重要理论成果包括（ ）。", options: { A: "走中国特色社会主义道路", B: "走中国工业化道路", C: "正确认识和处理社会主义社会矛盾", D: "调动一切积极因素为社会主义事业服务" }, answer: ["B", "C", "D"] },
+  { id: 56, type: "多选题", score: 2, stem: "实践证明，中国共产党为什么能，中国特色社会主义为什么好，归根到底是（ ）。", options: { A: "科学社会主义行", B: "马克思主义经典作家行", C: "中国化时代化的马克思主义行", D: "马克思主义行" }, answer: ["C", "D"] },
+  { id: 57, type: "多选题", score: 2, stem: "坚持和发展马克思主义，必须（ ）。", options: { A: "同中国具体实际相结合", B: "同社会主义现代化发展相结合", C: "同中华民族伟大复兴相结合", D: "同中华优秀传统文化相结合" }, answer: ["A", "D"] },
+  { id: 58, type: "多选题", score: 2, stem: "科学发展观强调，建设生态文明，实质上就是要建设（ ）的资源节约型、环境友好型社会。", options: { A: "以资源环境承载力为基础", B: "以可持续发展为目标", C: "以自然规律为准则", D: "以消费改造为主导" }, answer: ["A", "B", "C"] },
+  { id: 59, type: "多选题", score: 2, stem: "毛泽东关于社会主义发展阶段的观点表述正确的是（ ）。", options: { A: "第二个阶段是相对发达的社会主义", B: "第一个阶段是不发达的社会主义", C: "第二阶段可能比第一阶段需要更长的时间", D: "第二个阶段是比较发达的社会主义" }, answer: ["B", "C", "D"] },
+  { id: 60, type: "多选题", score: 2, stem: "在新民主主义社会中，主要的经济成分有哪几种（ ）。", options: { A: "社会主义经济", B: "合作社经济", C: "个体经济", D: "资本主义经济" }, answer: ["A", "C", "D"] },
+  { id: 61, type: "判断题", score: 1, stem: "党的十八大把科学发展观写入党章，科学发展观进一步走向成熟。", options: { A: "对", B: "错" }, answer: "A" },
+  { id: 62, type: "判断题", score: 1, stem: "毛泽东在《在晋绥干部会议上的讲话》中第一次提出了“新民主主义的革命”的科学概念。", options: { A: "对", B: "错" }, answer: "B" },
+  { id: 63, type: "判断题", score: 1, stem: "保持和发展党的先进性是马克思主义政党自身建设的根本任务和永恒课题。", options: { A: "对", B: "错" }, answer: "A" },
+  { id: 64, type: "判断题", score: 1, stem: "1938年，毛泽东在党的六届六中全会上作了《论新阶段》的报告，标志着“马克思主义中国化”这一命题的正式提出。", options: { A: "对", B: "错" }, answer: "A" },
+  { id: 65, type: "判断题", score: 1, stem: "毛泽东在《实践论》中强调调查研究是一切工作的第一步，提出了“没有调查，没有发言权”的著名论断。", options: { A: "对", B: "错" }, answer: "B" },
 ];
 
 const elements = {
@@ -80,6 +95,7 @@ const elements = {
 };
 
 const initialOrder = questions.map((question) => question.id);
+const totalScore = questions.reduce((sum, question) => sum + question.score, 0);
 let state = {
   mode: "all",
   currentIndex: 0,
@@ -130,8 +146,29 @@ function isSubmitted(questionId) {
   return Boolean(state.submitted[questionId]);
 }
 
+function normalizeAnswer(answer) {
+  return Array.isArray(answer) ? [...answer].sort() : [answer];
+}
+
+function normalizeSelection(selection) {
+  if (!selection) return [];
+  return Array.isArray(selection) ? [...selection].sort() : [selection];
+}
+
+function answersMatch(selection, answer) {
+  const selected = normalizeSelection(selection);
+  const correct = normalizeAnswer(answer);
+  return selected.length === correct.length && selected.every((letter, index) => letter === correct[index]);
+}
+
+function answerLabel(question) {
+  return normalizeAnswer(question.answer)
+    .map((letter) => `${letter}：${question.options[letter]}`)
+    .join("；");
+}
+
 function isCorrect(question) {
-  return state.selected[question.id] === question.answer && isSubmitted(question.id);
+  return answersMatch(state.selected[question.id], question.answer) && isSubmitted(question.id);
 }
 
 function wrongQuestions() {
@@ -164,19 +201,47 @@ function setMode(mode) {
 function selectAnswer(letter) {
   const question = currentQuestion();
   if (isSubmitted(question.id)) return;
-  state.selected[question.id] = letter;
+
+  if (Array.isArray(question.answer)) {
+    const current = normalizeSelection(state.selected[question.id]);
+    state.selected[question.id] = current.includes(letter)
+      ? current.filter((item) => item !== letter)
+      : [...current, letter].sort();
+  } else {
+    state.selected[question.id] = letter;
+    judgeCurrentQuestion();
+  }
+  saveState();
+  render();
+}
+
+function judgeCurrentQuestion() {
+  const question = currentQuestion();
+  const selected = state.selected[question.id];
+  if (!normalizeSelection(selected).length) {
+    elements.feedback.hidden = false;
+    elements.feedback.className = "feedback notice";
+    elements.feedback.innerHTML = "<strong>先选答案</strong><span>选好后再判断。</span>";
+    return false;
+  }
+
   state.attempts[question.id] = (state.attempts[question.id] || 0) + 1;
-  if (letter === question.answer) {
+  if (answersMatch(selected, question.answer)) {
     state.submitted[question.id] = true;
   } else {
     state.hadWrong[question.id] = true;
   }
   saveState();
   render();
+  return isSubmitted(question.id);
 }
 
 function continueAfterCorrect() {
   const question = currentQuestion();
+  if (Array.isArray(question.answer) && !isSubmitted(question.id)) {
+    judgeCurrentQuestion();
+    return;
+  }
   if (!isSubmitted(question.id)) {
     elements.feedback.hidden = false;
     elements.feedback.className = "feedback notice";
@@ -253,7 +318,7 @@ function renderQuestionGrid() {
 }
 
 function renderChoices(question) {
-  const selected = state.selected[question.id];
+  const selected = normalizeSelection(state.selected[question.id]);
   const submitted = isSubmitted(question.id);
   elements.choices.innerHTML = "";
 
@@ -261,9 +326,11 @@ function renderChoices(question) {
     const button = document.createElement("button");
     button.type = "button";
     button.className = "choice-row";
-    if (selected === letter) button.classList.add("selected");
-    if (submitted && letter === question.answer) button.classList.add("correct");
-    if (!submitted && selected === letter && selected !== question.answer) button.classList.add("wrong");
+    const picked = selected.includes(letter);
+    const correctAnswer = normalizeAnswer(question.answer).includes(letter);
+    if (picked) button.classList.add("selected");
+    if (submitted && correctAnswer) button.classList.add("correct");
+    if (!submitted && picked && !Array.isArray(question.answer) && !correctAnswer) button.classList.add("wrong");
     if (submitted) button.disabled = true;
     button.innerHTML = `<span class="choice-letter">${letter}</span><span class="choice-text">${text}</span>`;
     button.addEventListener("click", () => selectAnswer(letter));
@@ -272,24 +339,30 @@ function renderChoices(question) {
 }
 
 function renderFeedback(question) {
-  const selected = state.selected[question.id];
+  const selected = normalizeSelection(state.selected[question.id]);
   const submitted = isSubmitted(question.id);
-  if (!selected) {
+  if (!selected.length) {
     elements.feedback.hidden = true;
     elements.feedback.textContent = "";
     return;
   }
-  const correct = submitted && selected === question.answer;
+  const correct = submitted && answersMatch(selected, question.answer);
+  const pendingMulti = Array.isArray(question.answer) && !submitted;
   elements.feedback.hidden = false;
-  elements.feedback.className = `feedback ${correct ? "success" : "error"}`;
-  elements.feedback.innerHTML = correct
-    ? `<strong>答对了，可以继续</strong><span>${question.answer}：${question.options[question.answer]}</span>`
-    : `<strong>还不对，继续试</strong><span>这题答对后才能进入下一题。</span>`;
+  elements.feedback.className = `feedback ${correct ? "success" : pendingMulti ? "notice" : "error"}`;
+  if (correct) {
+    elements.feedback.innerHTML = `<strong>答对了，可以继续</strong><span>${answerLabel(question)}</span>`;
+  } else if (pendingMulti) {
+    elements.feedback.innerHTML = "<strong>多选题可选多个答案</strong><span>选好后点击“提交多选”。</span>";
+  } else {
+    elements.feedback.innerHTML = `<strong>还不对，继续试</strong><span>正确答案：${answerLabel(question)}</span>`;
+  }
 }
 
 function renderStats() {
   const currentStats = stats();
   elements.scoreValue.textContent = currentStats.score.toFixed(1).replace(".0", "");
+  document.querySelector("#maxScoreLabel").textContent = `满分 ${totalScore.toFixed(1).replace(".0", "")}`;
   elements.answeredValue.textContent = currentStats.answered;
   elements.correctValue.textContent = currentStats.correct;
   elements.wrongValue.textContent = currentStats.wrong;
@@ -324,8 +397,12 @@ function renderPractice() {
   elements.progressFill.style.width = `${(position / state.order.length) * 100}%`;
   elements.prevBtn.disabled = state.currentIndex === 0;
   elements.nextBtn.disabled = state.currentIndex === state.order.length - 1 || !isSubmitted(question.id);
-  elements.checkBtn.disabled = !isSubmitted(question.id) || state.currentIndex === state.order.length - 1;
-  elements.checkBtn.querySelector("span").textContent = isSubmitted(question.id) ? "继续下一题" : "选对后继续";
+  elements.checkBtn.disabled = state.currentIndex === state.order.length - 1 && isSubmitted(question.id);
+  elements.checkBtn.querySelector("span").textContent = Array.isArray(question.answer) && !isSubmitted(question.id)
+    ? "提交多选"
+    : isSubmitted(question.id)
+      ? "继续下一题"
+      : "选对后继续";
   renderChoices(question);
   renderFeedback(question);
 }
