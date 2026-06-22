@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>毛概刷题台</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand">
+          <span class="brand-mark"><i data-lucide="book-open-check"></i></span>
+          <div>
+            <h1>毛概刷题台</h1>
+            <p>50 道单选题 · 清爽练习模式</p>
+          </div>
+        </div>
+        <div class="top-actions">
+          <button class="icon-button subtle" id="allModeBtn" type="button" title="全部题目">
+            <i data-lucide="list-checks"></i>
+            <span>全部</span>
+          </button>
+          <button class="icon-button subtle" id="wrongModeBtn" type="button" title="错题回顾">
+            <i data-lucide="badge-alert"></i>
+            <span>错题</span>
+          </button>
+          <button class="icon-button subtle" id="randomModeBtn" type="button" title="随机练习">
+            <i data-lucide="shuffle"></i>
+            <span>随机</span>
+          </button>
+          <button class="icon-button danger" id="resetBtn" type="button" title="清空进度">
+            <i data-lucide="rotate-ccw"></i>
+            <span>重置</span>
+          </button>
+        </div>
+      </header>
+
+      <main class="workspace">
+        <aside class="question-nav" aria-label="题号导航">
+          <div class="section-title">
+            <span>题号</span>
+            <strong id="modeLabel">全部题目</strong>
+          </div>
+          <div class="question-grid" id="questionGrid"></div>
+        </aside>
+
+        <section class="practice-area" aria-live="polite">
+          <div class="progress-line">
+            <div>
+              <span class="eyebrow" id="questionMeta">单选题 · 1.5 分</span>
+              <h2 id="questionTitle">题目载入中</h2>
+            </div>
+            <div class="counter">
+              <span id="positionLabel">1</span>
+              <small>/ <span id="totalLabel">50</span></small>
+            </div>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+
+          <div class="choices" id="choices"></div>
+
+          <div class="feedback" id="feedback" hidden></div>
+
+          <div class="practice-actions">
+            <button class="icon-button secondary" id="prevBtn" type="button">
+              <i data-lucide="chevron-left"></i>
+              <span>上一题</span>
+            </button>
+            <button class="icon-button primary" id="checkBtn" type="button">
+              <i data-lucide="check-circle-2"></i>
+              <span>选对后继续</span>
+            </button>
+            <button class="icon-button secondary" id="nextBtn" type="button">
+              <span>下一题</span>
+              <i data-lucide="chevron-right"></i>
+            </button>
+          </div>
+        </section>
+
+        <aside class="stats-panel" aria-label="练习统计">
+          <div class="score-block">
+            <span class="eyebrow">当前得分</span>
+            <strong id="scoreValue">0</strong>
+            <small>满分 75</small>
+          </div>
+
+          <div class="metric-list">
+            <div class="metric">
+              <span>已过关</span>
+              <strong id="answeredValue">0</strong>
+            </div>
+            <div class="metric">
+              <span>首答正确</span>
+              <strong id="correctValue">0</strong>
+            </div>
+            <div class="metric">
+              <span>需复盘</span>
+              <strong id="wrongValue">0</strong>
+            </div>
+            <div class="metric">
+              <span>正确率</span>
+              <strong id="accuracyValue">0%</strong>
+            </div>
+          </div>
+
+          <div class="review-box">
+            <div class="section-title">
+              <span>错题本</span>
+              <strong id="wrongCountLabel">0 题</strong>
+            </div>
+            <div class="wrong-list" id="wrongList"></div>
+          </div>
+        </aside>
+      </main>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
